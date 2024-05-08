@@ -1,0 +1,317 @@
+.header{
+    height:120px;
+    background-image: linear-gradient(0,#f7462e,#fe6132);
+
+}
+.header__navbar{
+    display:flex;
+    justify-content: space-between; /* dungf flex để đẩy 2 cái sang 2 bên*/ 
+}
+.header__navbar-list{
+    list-style: none;
+    padding-left:0;
+
+}
+.header__navbar-item{
+    margin:0 8px;
+    position: relative;
+    min-height: 16px;
+}
+.header__navbar-item__has_qr:hover .header__qr{
+    display: block;
+}
+.header__navbar-item--has-notify:hover .header__notify{
+display:block;
+
+}
+.header__navbar-item,
+.header__navbar-item-link
+{
+    display:inline-block; /* vẫn giữ tính chất khối nhưng nằm trên cùng 1 hàng */
+    font-size: 1.4rem;
+    color:var(--white-color);
+    text-decoration:none; /* bỏ dấu gạch chân bên dưới */
+     font-weight: 300;
+     cursor: pointer;
+}
+.header__navbar-item,
+.header__navbar-item-link,
+.header__navbar-icon-link{
+display: inline-block;
+align-items: center;
+}
+.header__navbar-item:hover,
+.header__navbar-icon-link:hover,
+.header__navbar-item-link:hover {
+color:rgba(255, 255, 255, 0.7);
+
+}
+.header__navbar-item--strong{
+font-weight:400 ;
+}
+.header__navbar-item--separate::after{
+content:"";
+display:block;
+position:absolute;
+height:12px;
+border-left: 1px solid #eae3de;
+right:-8px;
+top:50%;
+transform: translateY(-50%);
+}
+.header__navbar-icon-link{
+    color: var(--white-color);
+    text-decoration: none;
+}
+.header__navbar-icon{
+    font-size: 1.8 rem;
+    margin:0 3px;
+}
+.header__navbar-title--no-pointer{
+    cursor: text; 
+    color:var(--white-color);
+    
+
+}
+/* header QR*/ 
+.header__qr{
+width: 180px;
+background-color: var(--white-color);
+position: absolute;
+left:0;
+top:150%;
+border-radius: 2px;
+padding: 8px;
+display: none;
+animation: fadeIn ease-in 0.3s;
+}
+.header__qr::before{
+    position: absolute;
+    width:100%;
+    height:18%;
+    content: "";
+    display: block;
+    top:-16px;
+     left: 0;
+
+}
+.header__img_qr{
+width: 100%;
+}
+.header__qr-apps{
+display: flex;
+justify-content: space-between;
+}
+.header_qr_link:nth-child(1){
+    margin-left: 5px;
+}
+.header_qr_link:nth-child(1){
+    margin-right:5px;
+}
+.header_qr_link{
+
+}
+.header__qr-download-img{
+height: 40px;
+}
+
+/* Header notfication*/
+.header__notify{
+      position: absolute;
+      top:130%;
+      right:0;
+    width:400px ;
+    border: 2px solid #d3d3d3; 
+    background-color: var(--white-color);  
+    cursor: default;
+    transform-origin: calc(100% - 20px) top ;
+    animation: headerNotifyGrowth ease-in 0.2s;
+    will-change: opacity, transform;
+    display: none;
+    
+}
+.header__notify::before{
+content: "";
+border-style: solid;
+border-width:20px 27px ;
+border-color: transparent transparent var(--white-color) transparent;
+position: absolute;
+right:4px;
+top: -28px;
+}
+.header__notify::after{
+    content: "";
+display: block;
+position:absolute;
+right:0;
+top:-16px;
+width: 90px;
+height:12px;
+}
+
+
+@keyframes headerNotifyGrowth{
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.header__notify_header{
+    height:40px;
+    background-color: var(--white-color);
+}
+.header__notify_header h3{
+    color:#999;
+    margin:0 0 0 12px;
+    font-size:1.4 rem;
+    font-weight:400 ;
+    line-height: 40px;
+    user-select: none;
+   
+}
+.header__notify-list{
+    padding-left: 0;
+
+    
+}
+
+.header__notify-item{
+display: flex;
+            
+}
+.header__notify-item:hover{
+    background-color:#f7f7f7 ;
+}
+.header__notify-item--viewed{
+    background-color: rgba(243, 145, 145, 0.234);
+}
+.header__notify-item a{
+    display:flex; 
+    padding: 12px; 
+}
+.header__notify-link{
+            display: flex;
+            padding: 12px; /* tạo khoảng cách ở viền trên viền dưới 12px*/
+            text-decoration: none;
+            width: 100%;
+           
+}
+.header__notify-img{
+       width: 48px;     
+      object-fit: contain;
+      
+}
+.header__notify-info{
+            margin-left:12px; /* cách khoảng cách chữ và ảnh 12px*/
+
+
+}
+.header__notify-name{
+            display:block; /* xuống dòng*/
+            font-size: 1.4rem;
+            color:var(--text-color);
+            font-weight: 400;
+            line-height: 1.8rem;
+
+
+}
+.header__notify-description{
+      display: block;     
+      font-size: 1.2rem;
+      line-height: 2.2rem; /* k/ cách giữa các chữ trên dòng xuống dòng */
+      color:#999;
+      margin-top: 4px;
+
+}
+.header__nofity-footer{
+    /*text-align: center;*/
+    display: flex;
+    padding: 8px 16px;
+
+    }
+    .header__notify-footer-btn{
+        text-decoration: none ;
+        color:var(--text-color);
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 400;
+        width: 100%;
+    }
+/* Authen modal*/
+.auth-form{
+    width: 370px;
+}
+.auth-form__container{
+padding: 0 30px;
+}
+.auth-form__header{
+    display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 12px;
+margin-top: 15px;
+}
+.auth-form__heading{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color:var(--text-color);
+   
+}
+.auth-form__swith-btn{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color:var(--primary-color);
+    cursor: pointer;
+}
+.auth-form__form{
+
+
+}
+.auth-form__input{
+    width:100%;
+    height:30px;
+    margin-top: 10px;
+    padding: 0 10px;
+    font-size: 1.2rem;
+    border-radius: 2px;
+    border: 1px solid var(--border-color);
+    outline: none;
+}
+.auth-form__input:focus{
+border-color:#777;
+}
+.auth-form__aside{
+    margin-top:50px;
+}
+.auth-form__policy-text{
+    font-size:1.2rem;
+    line-height: 1.8rem;
+    text-align: center;
+    padding: 0 20px;
+}
+.auth-form__policy-link{
+    color:var(--primary-color);
+    text-decoration: none;
+}
+.btn.btn--disabled{
+    cursor:default;
+    background-color: #c3c3c3;
+    color: #949494;
+}
+.auth-form__controls{
+    margin-top:60px;
+    display:flex;
+    justify-content: flex-end;
+}
+.auth-form__controls-back{
+    margin-right:8px;
+}
+.auth-form__socials{
+   background: color #f5f5f5; 
+   padding:12px 36px ;
+}
